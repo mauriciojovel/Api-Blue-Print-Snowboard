@@ -1,0 +1,36 @@
+html:
+  playground:
+    enabled: true
+    env: mock
+    environments:
+      mock:
+        url: http://localhost:81/
+        auth:
+          name: apikey
+          options:
+            key: api-dev-key
+            header: X-Api-Key
+      staging:
+        url: https://staging.example.com/
+        auth:
+          name: basic
+          options:
+            username: admin
+            password: secret
+      production:
+        url: https://api.example.com
+        auth:
+          name: oauth2
+          options:
+            authorizeUrl: https://accounts.example.com/oauth/authorize
+            tokenUrl: https://accounts.example.com/oauth/access_token
+            callbackUrl: https://www.example.com
+            clientId: <client-id>
+            clientSecret: <client-secret>
+            scopes: <scope-names>
+mock:
+  auth:
+    name: apikey
+    options:
+      key: api-dev-key
+      header: X-Api-Key
